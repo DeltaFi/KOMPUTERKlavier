@@ -1,0 +1,10 @@
+all : ../frequencies.h
+
+makefs : makefs.o
+	gcc -lm -o $@ $^
+
+../frequencies.h : makefs
+	./makefs > ../frequencies.h
+
+clean :
+	rm -rf *.o *~ makefs
